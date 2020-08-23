@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: eureka-consumer-feign
+server:
+  port: 20002
+  servlet:
+    context-path: /
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}-@project.version@:${spring.cloud.client.ip-address}:${server.port}
+    prefer-ip-address: true
+
+  client:
+    service-url:
+      defaultZone: http://localhost:23333/eureka/
